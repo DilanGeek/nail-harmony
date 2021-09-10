@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+import HomePage from "./pages/homepage/homepage.component";
+// import ShopPage from './pages/shop/shop.component';
+import Header from "./components/header/header.component";
+// import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+// import { setCurrentUser } from './redux/user/user.actions';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Header />
+        <BrowserRouter>
+          <Switch>
+            {/* <Redirect exact from="/" to="/" /> */}
+            <Route exact path="/" component={HomePage} />
+            {/* <Route path='/shop' component={ShopPage} /> */}
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
