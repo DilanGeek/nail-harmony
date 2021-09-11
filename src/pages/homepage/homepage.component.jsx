@@ -1,14 +1,20 @@
 import React from "react";
 import "./homepage.styles.scss";
-// import Directory from "../../components/directory/directory.component";
+import "./homepage.styles.scss";
+
+// components
 import Carrousel from "../../components/carrousel/carrousel.component";
-// import Footer from "../../components/footer/footer.component";
+import ProductsComponent from "../../components/products/products.component";
 
 const HomePage = () => (
   <div className="homepage">
-    {/* <Directory /> */}
     <Carrousel />
-    {/* <Footer /> */}
+
+    <div>
+      <h4>SEE OUR COLORS</h4>
+    </div>
+
+    <ProductsComponent finder={false} />
   </div>
 );
 
