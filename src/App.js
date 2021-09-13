@@ -13,12 +13,8 @@ class App extends React.Component {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route path="/collection">
-            <CollectionPage />
-          </Route>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/collection" component={CollectionPage} />
         </Switch>
       </div>
     );
