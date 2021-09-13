@@ -6,6 +6,7 @@ class ProductsComponent extends React.Component {
     super(props);
 
     this.state = {
+      search: "",
       sections: [
         {
           sku: "1110365",
@@ -31,18 +32,17 @@ class ProductsComponent extends React.Component {
     };
   }
 
-  render() {
-    const handleChange = (e) => {
-      let value = e.target.value;
-      const product = this.state.sections.filter((product) =>
-        product.sku.includes(value)
-      );
+  handleChange = (e) => {
+    this.setState({ search: e.target.value });
+  };
 
-      if (product.length > 0) {
-        // this.state.sections = [];
-        // this.state.sections = [...product];
-      }
-    };
+  render() {
+    let filteredSections = this.state.sections.filter((product) => {
+      return (
+        product.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
+          -1 || product.sku.indexOf(this.state.search.toLowerCase()) !== -1
+      );
+    });
 
     let input;
     if (this.props.finder) {
@@ -53,15 +53,16 @@ class ProductsComponent extends React.Component {
             id="product"
             name="product"
             placeholder="Search Product"
-            onChange={handleChange}
+            value={this.state.search}
+            onChange={this.handleChange.bind(this)}
           />
         </div>
       );
     }
 
-    let products = this.state.sections.map(({ imageUrl, sku, name }) => {
+    let products = filteredSections.map(({ imageUrl, sku, name }) => {
       return (
-        <div class="column">
+        <div className="column">
           <img
             alt=""
             width="120"
@@ -69,7 +70,7 @@ class ProductsComponent extends React.Component {
             height="400"
             src={require(`../../assets/img/bottles/${imageUrl}`).default}
           />
-          <div class="center">
+          <div className="center">
             <h4>{sku}</h4>
             <h3 style={{ textAlign: "center" }}>{name}</h3>
           </div>
@@ -82,7 +83,9 @@ class ProductsComponent extends React.Component {
         {input}
 
         <div id="products">
-          <div class="row">{products}</div>
+          <div className="row">
+            {products.length > 0 ? products : <div>Data not found!!</div>}
+          </div>
         </div>
       </div>
     );
