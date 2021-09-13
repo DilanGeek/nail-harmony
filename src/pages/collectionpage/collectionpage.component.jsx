@@ -1,4 +1,6 @@
 import React from "react";
+
+// components
 import ProductsComponent from "../../components/products/products.component";
 
 const CollectionPage = () => (
