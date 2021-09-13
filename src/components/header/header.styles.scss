@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  // background-color: rgb(179, 179, 179);
+  background-color: #ffcfcf;
 
   .logo-container {
     height: 100%;
@@ -12,11 +14,13 @@
   }
 
   .options {
-    width: 50%;
+    width: 4%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    // background-color: rgb(179, 179, 179);
+    background-color: #ffcfcf;
 
     .option {
       padding: 10px 15px;

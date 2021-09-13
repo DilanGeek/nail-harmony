@@ -2,33 +2,23 @@ import React from "react";
 import "./products.styles.scss";
 
 class ProductsComponent extends React.Component {
+  componentDidMount() {
+    const apiUrl = "http://localhost/nailaliancePHP/api/product_color.php";
+    fetch(apiUrl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({ sections: data });
+      });
+  }
+
   constructor(props) {
     super(props);
 
     this.state = {
       search: "",
-      sections: [
-        {
-          sku: "1110365",
-          name: "Tell Her She's Stellar",
-          imageUrl: "GEL-W-H-19-1110365-TellHerShesStellar.jpg",
-        },
-        {
-          sku: "1110373",
-          name: "Copper Dream",
-          imageUrl: "GEL-W-H-19-1110373-CopperDream.jpg",
-        },
-        {
-          sku: "1110367",
-          name: "Sprinkle of Twinkle",
-          imageUrl: "GEL-W-H-19-1110367-SprinkleofTwinkle.jpg",
-        },
-        {
-          sku: "1110368",
-          name: "A Starry Sigh",
-          imageUrl: "GEL-W-H-19-1110368-AStarrySight.jpg",
-        },
-      ],
+      sections: [],
     };
   }
 
@@ -65,9 +55,7 @@ class ProductsComponent extends React.Component {
         <div className="column">
           <img
             alt=""
-            width="120"
-            className="center"
-            height="400"
+            className="center imageStyle"
             src={require(`../../assets/img/bottles/${imageUrl}`).default}
           />
           <div className="center">

@@ -15,7 +15,7 @@ class Carrousel extends React.Component {
         <div>
           <img
             alt=""
-            height="700"
+            height="900"
             src={
               require(`../../assets/img/models/GEL-HM-10243-0H2A7484-med.jpg`)
                 .default
@@ -25,7 +25,7 @@ class Carrousel extends React.Component {
         <div>
           <img
             alt=""
-            height="700"
+            height="900"
             src={
               require(`../../assets/img/models/GEL-HM-10243-0H2A7945-med.jpg`)
                 .default
@@ -35,7 +35,7 @@ class Carrousel extends React.Component {
         <div>
           <img
             alt=""
-            height="700"
+            height="900"
             src={
               require(`../../assets/img/models/GEL-HM-10243-0H2A8089-med.jpg`)
                 .default
